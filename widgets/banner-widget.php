@@ -264,6 +264,20 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'right_label_bg_height',
+			[
+				'label' => esc_html__( 'Right Label Background Height', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%', 'px', 'vh' ],
+				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ], 'px' => [ 'min' => 0, 'max' => 500 ] ],
+				'default' => [ 'unit' => '%', 'size' => 100 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'height: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'left_label_radius',
 			[
 				'label' => esc_html__( 'Left Label Border Radius', 'valleys-banner' ),
@@ -285,6 +299,20 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'default' => [ 'unit' => '%', 'size' => 100 ],
 				'selectors' => [
 					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'width: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'left_label_bg_height',
+			[
+				'label' => esc_html__( 'Left Label Background Height', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%', 'px', 'vh' ],
+				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ], 'px' => [ 'min' => 0, 'max' => 500 ] ],
+				'default' => [ 'unit' => '%', 'size' => 100 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'height: {{SIZE}}{{UNIT}} !important;',
 				],
 			]
 		);

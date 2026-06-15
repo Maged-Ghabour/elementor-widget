@@ -30,10 +30,10 @@
 .valleys-label-bg {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
     z-index: -1;
-    background-color: #b1844b; /* Default brown/gold */
 }
 
 /* Right text label */
