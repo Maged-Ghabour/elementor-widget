@@ -1,0 +1,89 @@
+.valleys-banner-container {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    font-family: inherit;
+}
+
+.valleys-label {
+    position: absolute;
+    padding: 15px 40px;
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #b1844b; /* Default brown/gold */
+    color: #ffffff;
+    z-index: 2;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+/* Right text label */
+.valleys-label.right {
+    right: 0;
+    border-radius: 30px 0 0 30px;
+}
+
+/* Left text label */
+.valleys-label.left {
+    left: 0;
+    border-radius: 0 30px 30px 0;
+}
+
+.valleys-btn-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15%;
+    z-index: 3;
+}
+
+.valleys-btn {
+    display: inline-block;
+    padding: 12px 50px;
+    background-color: #ffffff;
+    color: #b1844b;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.valleys-btn:hover {
+    background-color: #f7f7f7;
+    color: #8c6738;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* Sensible defaults for mobile, easily overridden in Elementor */
+    .valleys-label {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+    
+    .valleys-btn {
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .valleys-label {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    
+    /* Ensure labels don't break layout on tiny screens */
+    .valleys-label.right, .valleys-label.left {
+        white-space: normal;
+        max-width: 85%;
+        text-align: center;
+        line-height: 1.4;
+    }
+}
