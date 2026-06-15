@@ -156,6 +156,61 @@ body.rtl .valleys-force-full-width {
     margin: 0;
 }
 
+/* ==============================================================
+   Valleys Promo Box Widget Styles
+============================================================== */
+.valleys-promo-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    font-family: inherit;
+    overflow: hidden;
+    background-color: #f7f3ec; /* Fallback */
+}
+
+.valleys-promo-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.valleys-promo-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.valleys-promo-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.valleys-promo-desc {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.valleys-promo-btn-wrapper {
+    margin-top: 20px;
+}
+
+.valleys-promo-btn {
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.valleys-promo-btn:hover {
+    opacity: 0.9;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     /* Sensible defaults for mobile, easily overridden in Elementor */
@@ -169,6 +224,14 @@ body.rtl .valleys-force-full-width {
     .valleys-btn {
         font-size: 16px;
         padding: 10px 30px;
+    }
+    
+    .valleys-promo-title {
+        font-size: 30px;
+    }
+    
+    .valleys-promo-desc {
+        font-size: 16px;
     }
 }
 
@@ -186,5 +249,13 @@ body.rtl .valleys-force-full-width {
         max-width: 85%;
         text-align: center;
         line-height: 1.4;
+    }
+
+    .valleys-promo-title {
+        font-size: 24px;
+    }
+    
+    .valleys-promo-desc {
+        font-size: 15px;
     }
 }
