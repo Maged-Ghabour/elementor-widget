@@ -180,7 +180,7 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Background Color', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label::before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .valleys-label-bg' => 'background-color: {{VALUE}} !important;',
 				],
 			]
 		);
@@ -194,13 +194,25 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'labels_padding',
+			'right_label_padding',
 			[
-				'label' => esc_html__( 'Labels Padding', 'valleys-banner' ),
+				'label' => esc_html__( 'Right Label Padding', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.right .valleys-label-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'left_label_padding',
+			[
+				'label' => esc_html__( 'Left Label Padding', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left .valleys-label-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -212,7 +224,7 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.right::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -223,10 +235,10 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Right Label Background Length', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px', 'vw' ],
-				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ] ],
+				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ], 'px' => [ 'min' => 0, 'max' => 1000 ] ],
 				'default' => [ 'unit' => '%', 'size' => 100 ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.right::before' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'width: {{SIZE}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -238,7 +250,7 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.left::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -249,10 +261,10 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Left Label Background Length', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px', 'vw' ],
-				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ] ],
+				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ], 'px' => [ 'min' => 0, 'max' => 1000 ] ],
 				'default' => [ 'unit' => '%', 'size' => 100 ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.left::before' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'width: {{SIZE}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -453,13 +465,19 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 			
 			<?php if ( ! empty( $settings['right_text'] ) ) : ?>
 				<div class="valleys-label right">
-					<?php echo nl2br( wp_kses_post( $settings['right_text'] ) ); ?>
+					<div class="valleys-label-bg"></div>
+					<div class="valleys-label-text">
+						<?php echo nl2br( wp_kses_post( $settings['right_text'] ) ); ?>
+					</div>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $settings['left_text'] ) ) : ?>
 				<div class="valleys-label left">
-					<?php echo nl2br( wp_kses_post( $settings['left_text'] ) ); ?>
+					<div class="valleys-label-bg"></div>
+					<div class="valleys-label-text">
+						<?php echo nl2br( wp_kses_post( $settings['left_text'] ) ); ?>
+					</div>
 				</div>
 			<?php endif; ?>
 
