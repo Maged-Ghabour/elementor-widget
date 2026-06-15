@@ -180,7 +180,7 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'label' => esc_html__( 'Background Color', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .valleys-label::before' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -212,7 +212,21 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.right' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.right::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'right_label_bg_width',
+			[
+				'label' => esc_html__( 'Right Label Background Length', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%', 'px', 'vw' ],
+				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ] ],
+				'default' => [ 'unit' => '%', 'size' => 100 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.right::before' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -224,7 +238,21 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.left' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .valleys-label.left::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'left_label_bg_width',
+			[
+				'label' => esc_html__( 'Left Label Background Length', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%', 'px', 'vw' ],
+				'range' => [ '%' => [ 'min' => 0, 'max' => 200 ] ],
+				'default' => [ 'unit' => '%', 'size' => 100 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left::before' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
