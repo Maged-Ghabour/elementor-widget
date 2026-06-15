@@ -35,6 +35,6 @@ add_action( 'elementor/widgets/register', 'register_valleys_banner_widget' );
  * Register widget scripts/styles.
  */
 function register_valleys_banner_styles() {
-	wp_register_style( 'valleys-banner-style', plugins_url( 'assets/css/style.css', __FILE__ ) );
+	wp_register_style( 'valleys-banner-style', plugins_url( 'assets/css/style.css', __FILE__ ), [], filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/style.css' ) );
 }
 add_action( 'elementor/frontend/after_enqueue_styles', 'register_valleys_banner_styles' );
