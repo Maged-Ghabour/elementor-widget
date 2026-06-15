@@ -174,14 +174,13 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'right_label_bg_color',
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
 			[
-				'label' => esc_html__( 'Right Label Background Color', 'valleys-banner' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'background-color: {{VALUE}} !important;',
-				],
+				'name' => 'right_label_background',
+				'label' => esc_html__( 'Right Label Background', 'valleys-banner' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .valleys-label.right .valleys-label-bg',
 			]
 		);
 
@@ -196,14 +195,13 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'left_label_bg_color',
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
 			[
-				'label' => esc_html__( 'Left Label Background Color', 'valleys-banner' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'background-color: {{VALUE}} !important;',
-				],
+				'name' => 'left_label_background',
+				'label' => esc_html__( 'Left Label Background', 'valleys-banner' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .valleys-label.left .valleys-label-bg',
 			]
 		);
 
