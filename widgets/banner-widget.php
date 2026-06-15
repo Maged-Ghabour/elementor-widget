@@ -137,6 +137,19 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'force_full_width',
+			[
+				'label' => esc_html__( 'Force Full Width', 'valleys-banner' ),
+				'description' => esc_html__( 'Enable this to break out of the section container and stretch across the entire screen.', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Yes', 'valleys-banner' ),
+				'label_off' => esc_html__( 'No', 'valleys-banner' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
 		$this->end_controls_section();
 
 		// -------------------------------------------------------------
@@ -193,17 +206,25 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'labels_radius',
+			'right_label_radius',
 			[
-				'label' => esc_html__( 'Labels Border Radius (Base)', 'valleys-banner' ),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [ 'min' => 0, 'max' => 100 ],
-				],
+				'label' => esc_html__( 'Right Label Border Radius', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label.right' => 'border-radius: {{SIZE}}{{UNIT}} 0 0 {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .valleys-label.left' => 'border-radius: 0 {{SIZE}}{{UNIT}} {{SIZE}}{{UNIT}} 0;',
+					'{{WRAPPER}} .valleys-label.right' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'left_label_radius',
+			[
+				'label' => esc_html__( 'Left Label Border Radius', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -385,6 +406,10 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 		$image_url = $settings['banner_image']['url'];
 		
 		$this->add_render_attribute( 'wrapper', 'class', 'valleys-banner-container' );
+		
+		if ( 'yes' === $settings['force_full_width'] ) {
+			$this->add_render_attribute( 'wrapper', 'class', 'valleys-force-full-width' );
+		}
 		
 		if ( ! empty( $image_url ) ) {
 			$this->add_render_attribute( 'wrapper', 'style', 'background-image: url(' . esc_url( $image_url ) . ');' );
