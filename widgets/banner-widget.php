@@ -164,23 +164,45 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'label_color',
+			'right_label_color',
 			[
-				'label' => esc_html__( 'Text Color', 'valleys-banner' ),
+				'label' => esc_html__( 'Right Label Text Color', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .valleys-label.right' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
 		$this->add_control(
-			'label_bg_color',
+			'right_label_bg_color',
 			[
-				'label' => esc_html__( 'Background Color', 'valleys-banner' ),
+				'label' => esc_html__( 'Right Label Background Color', 'valleys-banner' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .valleys-label-bg' => 'background-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'background-color: {{VALUE}} !important;',
+				],
+			]
+		);
+
+		$this->add_control(
+			'left_label_color',
+			[
+				'label' => esc_html__( 'Left Label Text Color', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'left_label_bg_color',
+			[
+				'label' => esc_html__( 'Left Label Background Color', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'background-color: {{VALUE}} !important;',
 				],
 			]
 		);
