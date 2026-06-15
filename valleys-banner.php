@@ -25,8 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 function register_valleys_banner_widget( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/banner-widget.php' );
+	require_once( __DIR__ . '/widgets/features-widget.php' );
 
 	$widgets_manager->register( new \Valleys_Banner_Widget() );
+	$widgets_manager->register( new \Valleys_Features_Widget() );
 
 }
 add_action( 'elementor/widgets/register', 'register_valleys_banner_widget' );
