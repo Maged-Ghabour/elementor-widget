@@ -278,6 +278,34 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'right_label_bg_position_top',
+			[
+				'label' => esc_html__( 'Background Vertical Offset', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [ 'px' => [ 'min' => -100, 'max' => 100 ] ],
+				'default' => [ 'unit' => 'px', 'size' => 0 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'margin-top: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'right_label_bg_position_right',
+			[
+				'label' => esc_html__( 'Background Horizontal Offset', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [ 'px' => [ 'min' => -200, 'max' => 200 ] ],
+				'default' => [ 'unit' => 'px', 'size' => 0 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.right .valleys-label-bg' => 'margin-right: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'left_label_radius',
 			[
 				'label' => esc_html__( 'Left Label Border Radius', 'valleys-banner' ),
@@ -313,6 +341,34 @@ class Valleys_Banner_Widget extends \Elementor\Widget_Base {
 				'default' => [ 'unit' => '%', 'size' => 100 ],
 				'selectors' => [
 					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'height: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'left_label_bg_position_top',
+			[
+				'label' => esc_html__( 'Background Vertical Offset', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [ 'px' => [ 'min' => -100, 'max' => 100 ] ],
+				'default' => [ 'unit' => 'px', 'size' => 0 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'margin-top: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'left_label_bg_position_left',
+			[
+				'label' => esc_html__( 'Background Horizontal Offset', 'valleys-banner' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [ 'px' => [ 'min' => -200, 'max' => 200 ] ],
+				'default' => [ 'unit' => 'px', 'size' => 0 ],
+				'selectors' => [
+					'{{WRAPPER}} .valleys-label.left .valleys-label-bg' => 'margin-left: {{SIZE}}{{UNIT}} !important;',
 				],
 			]
 		);
